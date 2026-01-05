@@ -1,0 +1,25 @@
+﻿<Page x:Class="WpfApplication1.IngredientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Справочник ингредиентов">
+    <Grid Margin="10">
+        <StackPanel>
+        <DataGrid x:Name="IngredientGrid"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="True"
+                  IsReadOnly="False"
+                  Margin="0,0,0,60">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Номер ёмкости" Binding="{Binding ContainerNumber}" Width="100"/>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="*Для удаления ингридиента, сотрите Наименование"></Label>
+        </StackPanel>
+        <Button Content="Сохранить" Click="Save_Click"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="30"/>
+        <Button Content="Закрыть" Click="Close_Click"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="30"/>
+    </Grid>
+</Page>
