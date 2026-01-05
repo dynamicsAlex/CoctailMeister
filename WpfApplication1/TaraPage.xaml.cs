@@ -34,6 +34,7 @@ namespace WpfApplication1
             _refreshCallback = refreshCallback;
             _taraList = XmlStorage.LoadTara();
             TaraGrid.ItemsSource = _taraList;
+
             // Список коктейлей для привязки к таре + 1 пустой для удаления привязки
             _coctails = XmlStorage.LoadCocktails();
             _coctails.Add(new Cocktail(Guid.Empty));

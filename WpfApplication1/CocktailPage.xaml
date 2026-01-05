@@ -12,8 +12,9 @@
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="200"/>
-            </DataGrid.Columns>          
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="250"/>
+                <DataGridTextColumn Header="% Заполнения тары" Binding="{Binding FillingPercentage}" Width="130" IsReadOnly="True"/>
+                </DataGrid.Columns>          
         </DataGrid>
             <Button Content="Удалить коктейль" HorizontalAlignment="Right" Click="DeleteCocktail_Click" Width="120" Height="30" Margin="10" />
             <DataGrid x:Name="CocktailIngridientsGrid"
@@ -22,7 +23,7 @@
                   IsReadOnly="False"
                  >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Содержание, %" Binding="{Binding Percentage}" Width="200" />
+                <DataGridTextColumn Header="Содержание, %" Binding="{Binding Percentage}" Width="100" />
                 <DataGridComboBoxColumn x:Name="comboBoxColum" Header="Ингридиент" SelectedValueBinding="{Binding IngredientId}" SelectedValuePath="Id" DisplayMemberPath="Name"/>
             </DataGrid.Columns>
         </DataGrid>

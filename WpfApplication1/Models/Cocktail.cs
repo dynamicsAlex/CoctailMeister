@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using System.Xml.Serialization;
 
 namespace WpfApplication1
 {
@@ -13,13 +14,26 @@ namespace WpfApplication1
         public string Name { get; set; }
         public List<CocktailIngredient> Ingredients { get; set; }
 
+        /// <summary>
+        /// Процент заполнения тары, вычисляемое поле
+        /// </summary>
+        [XmlIgnore]
+        public int? FillingPercentage { 
+            get {
+                return Ingredients != null ? Ingredients.Sum(x => x.Percentage) : (int?)null;
+            }
+        }
+
         public Cocktail()
         {
             Id = Guid.NewGuid();
             Ingredients = new List<CocktailIngredient>();
         }
 
-        // "Пустой" коктейль для удаления привязки к таре
+        /// <summary>
+        /// Этот конструктор для создания "Пустого" коктейлья, для удаления привязки к таре
+        /// </summary>
+        /// <param name="id"></param>
         public Cocktail(Guid id)
         {
             Id = id;
@@ -32,14 +46,17 @@ namespace WpfApplication1
     /// </summary>
     public class CocktailIngredient
     {
-        private List<Ingredient> _ingridients = XmlStorage.LoadIngredients();
-
         public Guid IngredientId { get; set; }
         public int Percentage { get; set; }
 
+        /// <summary>
+        /// Имя ингридиента
+        /// </summary>
         public string Name {
 
             get {
+                // Получаем по id
+                List<Ingredient> _ingridients = XmlStorage.LoadIngredients();
                 Ingredient ing = (Ingredient)_ingridients.Find(x => x.Id.Equals(IngredientId));
                 return ing.Name;
             }
