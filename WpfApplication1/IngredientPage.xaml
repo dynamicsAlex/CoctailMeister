@@ -4,22 +4,22 @@
       Title="Справочник ингредиентов">
     <Grid Margin="10">
         <StackPanel>
-        <DataGrid x:Name="IngredientGrid"
+            <DataGrid x:Name="IngredientGrid"
                   AutoGenerateColumns="False"
                   CanUserAddRows="True"
                   IsReadOnly="False"
                   Margin="0,0,0,60">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Номер ёмкости" Binding="{Binding ContainerNumber}" Width="100"/>
-                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="200"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Label Content="*Для удаления ингридиента, сотрите Наименование"></Label>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="200" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Номер ёмкости" Binding="{Binding ContainerNumber}" Width="100"/>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="200"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="*Для удаления ингридиента, сотрите Наименование"></Label>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Закрыть" Click="Close_Click" Width="100" Height="30"/>
+                <Button Content="Сохранить" Click="Save_Click" Width="100" Height="30"/>
+            </StackPanel>
         </StackPanel>
-        <Button Content="Сохранить" Click="Save_Click"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="30"/>
-        <Button Content="Закрыть" Click="Close_Click"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="30"/>
     </Grid>
 </Page>
