@@ -76,7 +76,7 @@ namespace WpfApplication1
             string ingredients = "";
             foreach (CocktailIngredient ci in cocktail.Ingredients)
             {
-                ingredients += string.Format("{0} ({1}%)\n", ci.Name, ci.Percentage);
+                ingredients += string.Format("{0} ({1}%, ёмкость #{2})\n", ci.Name, ci.Percentage, ci.ContainerNumber);
             }
 
             MessageBox.Show(

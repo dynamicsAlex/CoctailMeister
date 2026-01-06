@@ -46,8 +46,13 @@ namespace WpfApplication1
     /// </summary>
     public class CocktailIngredient
     {
+        /// <summary>
+        /// Кэшируем справичник ингридиентов
+        /// </summary>
+        private List<Ingredient> _ingridients;
+
         public Guid IngredientId { get; set; }
-        public int Percentage { get; set; }
+        public byte Percentage { get; set; }
 
         /// <summary>
         /// Имя ингридиента
@@ -56,11 +61,25 @@ namespace WpfApplication1
 
             get {
                 // Получаем по id
-                List<Ingredient> _ingridients = XmlStorage.LoadIngredients();
+                if(_ingridients == null)
+                    _ingridients = XmlStorage.LoadIngredients();
                 Ingredient ing = (Ingredient)_ingridients.Find(x => x.Id.Equals(IngredientId));
                 return ing.Name;
             }
-    }
+        }
+        
+        /// <summary>
+        /// Номер ёмкости ингридиента
+        /// </summary>
+        public byte ContainerNumber { 
+            get {
+                if (_ingridients == null)
+                    _ingridients = XmlStorage.LoadIngredients();
+                Ingredient ing = (Ingredient)_ingridients.Find(x => x.Id.Equals(IngredientId));
+                return ing.ContainerNumber;
+            }
+        }
 
     }
 }
+

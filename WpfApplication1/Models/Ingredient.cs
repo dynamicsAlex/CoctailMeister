@@ -9,7 +9,7 @@ namespace WpfApplication1
     public class Ingredient
     {
         public Guid Id { get; set; }
-        public int ContainerNumber { get; set; }
+        public byte ContainerNumber { get; set; }
         public string Name { get; set; }
 
         public Ingredient()
