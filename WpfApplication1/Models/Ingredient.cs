@@ -12,7 +12,11 @@ namespace WpfApplication1
         public byte ContainerNumber { get; set; }
         public string Name { get; set; }
 
-        public Ingredient()
+        /// <summary>
+        /// Остаточный объём ингридиента в ёмкости (в граммах)
+        /// </summary>
+        public ushort ResidualVolume { get; set; }
+    public Ingredient()
         {
             Id = Guid.NewGuid();
         }

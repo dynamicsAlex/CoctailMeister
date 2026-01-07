@@ -13,6 +13,7 @@
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="200" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Номер ёмкости" Binding="{Binding ContainerNumber}" Width="100"/>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="200"/>
+                    <DataGridTextColumn Header="Остаточный обём, г" Binding="{Binding ResidualVolume}" Width="150"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Label Content="*Для удаления ингридиента, сотрите Наименование"></Label>
